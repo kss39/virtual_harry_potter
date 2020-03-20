@@ -1,12 +1,16 @@
+from game import Game
 import states
 
 class Villain:
-    def __init__(self, trigger_func, active_state):
-        self.func = trigger_func
-        self.state = active_state
+    def __init__(self, hp):
+        self.hp = hp
 
-def quirinus_quirrel_func(game):
-    game.active_hero_lose_hp(1)
+class QuirinusQuirrel(Villain):
+    """
+    Active Hero loses 1 hp.
 
-
-quirinus_quirrel = Villain(None, states.start_turn)
+    Reward:
+    All heroes gain $1 and 1 hp.
+    """
+    def start_turn(self, game: Game):
+        states.lose_hp(game, 1)

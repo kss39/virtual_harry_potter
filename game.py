@@ -1,4 +1,4 @@
-import enum
+import states
 
 class Game:
     def __init__(self, num_players: int, locations: list):
@@ -22,10 +22,6 @@ class Game:
         # TODO
         pass
 
-    def resolve_villains(self):
-        # TODO: resolve villains abilitys at the start of the turn.
-        pass
-
     def location_info(self):
         """
         Returns the current location infomation.
@@ -35,11 +31,7 @@ class Game:
         """
         return self.this_location_remain, self.this_location_max
 
-    def active_hero_lose_hp(self, hp_amount):
-        self.active_hero.hp -= hp_amount
-        self.update_state(State.lose_hp)
-
-    def update_state(self, state):
+    def update_state(self, state, args):
         # TODO: Implement state update
         # This will be a big function
         """
@@ -47,6 +39,7 @@ class Game:
         trigger other states.
 
         Arguments:
-        - state: the state to respond.
+        - state: the state to respond. It should be a function in states.py
         """
+        state(self, *args)
 
