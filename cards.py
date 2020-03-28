@@ -27,3 +27,12 @@ def invisibility_clock(game, hero):
 def firebolt(game, hero):
     hero.attack += 1
     # TODO: if you defeat a villain.
+#lshnb
+
+class Card:
+    def __init__(self, type, func):
+        self.type = type
+        self.func = func
+·····
+
+        
